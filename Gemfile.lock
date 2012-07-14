@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activerecord_trackable (0.0.1)
+    tracker (0.0.1)
       rails (~> 3.2.6)
 
 GEM
@@ -125,9 +125,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord_trackable!
   guard-rspec
   guard-spork
   jquery-rails
   rspec-rails
   sqlite3
+  tracker!

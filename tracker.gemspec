@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "activerecord_trackable/version"
+require "tracker/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "activerecord_trackable"
-  s.version     = ActiverecordTrackable::VERSION
+  s.name        = "tracker"
+  s.version     = Tracker::VERSION
   s.authors     = ["TODO: Your name"]
   s.email       = ["TODO: Your email"]
   s.homepage    = "TODO"

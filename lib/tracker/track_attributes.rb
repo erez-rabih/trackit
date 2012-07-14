@@ -1,4 +1,4 @@
-module ActiverecordTrackable
+module Tracker
   module TrackAttributes
     extend ActiveSupport::Concern
  
@@ -12,4 +12,4 @@ module ActiverecordTrackable
   end
 
 end
-ActiveRecord::Base.send :include, ActiverecordTrackable::TrackAttributes
+ActiveRecord::Base.send :include, Tracker::TrackAttributes

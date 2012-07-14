@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :activerecord_trackable do
+# task :tracker do
 #   # Task goes here
 # end
