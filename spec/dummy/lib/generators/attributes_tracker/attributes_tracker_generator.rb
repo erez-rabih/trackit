@@ -4,6 +4,6 @@ class AttributesTrackerGenerator < Rails::Generators::NamedBase
   argument :attrs, :type => :array, :default => []
 
   def generate_track_attributes_call_on_model_file
-    inject_into_class "app/models/#{name.underscore}.rb", name.camelize.constantize , "track_attributes"
+    inject_into_class "app/models/#{name.underscore}.rb", name.camelize.constantize , "  track_attributes #{attrs.map {|a| ":#{a}"}.join(", ")}\n"
   end
 end
