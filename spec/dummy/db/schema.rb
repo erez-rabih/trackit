@@ -11,13 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713223502) do
+ActiveRecord::Schema.define(:version => 20120718080721) do
 
   create_table "dummy_models", :force => true do |t|
     t.integer  "a"
     t.string   "b"
     t.boolean  "c"
     t.date     "d"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "dummy_tracked_models", :force => true do |t|
+    t.integer  "a"
+    t.string   "b"
+    t.boolean  "c"
+    t.datetime "d"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "tracked_attributes", :default => 0, :null => false
+  end
+
+  create_table "untouched_models", :force => true do |t|
+    t.integer  "a"
+    t.string   "b"
+    t.boolean  "c"
+    t.datetime "d"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

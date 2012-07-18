@@ -19,10 +19,11 @@ module Tracker
     end
 
     def update_tracked_attributes
+      
     end
 
     def tracked
-      @tracked ||= Tracker::TrackedAttributesInterface.new(self)
+      @tracked ||= Tracker::Wrapper.new(self)
     end
 
   end
