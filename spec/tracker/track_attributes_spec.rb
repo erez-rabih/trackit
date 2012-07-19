@@ -64,10 +64,39 @@ describe :track_attributes do
   end
 
   describe :update_tracked_attributes do
+    let :model do
+      DummyTrackedModel.new
+    end
+
     context "no changes to model made" do
       it "should not change tracked attributes" do
-        model = DummyTrackedModel.new
-        expect {model.save!}.not_to change(model, :tracked_attributes)
+        model.tracked.should_not_receive(:set_changed)
+        model.save!
+      end
+    end
+
+    context "change were made but not to tracked attributes" do
+      it "should not change tracked attributes" do
+        model.tracked.should_not_receive(:set_changed)
+        attrs = DummyTrackedModel::UNTRACKED_ATTRIBUTES.inject({}) do |h, attr|
+          h[attr] = 0
+          h
+        end
+        model.update_attributes!(attrs)
+      end
+    end
+
+    context "changes were made to tracked attribute" do
+      it "should set_changed attributes appropriately" do
+        attrs = DummyTrackedModel::TRACKED_ATTRIBUTES.inject({}) do |h, attr|
+          h[attr] = 0
+          h
+        end
+        
+        DummyTrackedModel::TRACKED_ATTRIBUTES.each do |attr|
+          model.tracked.should_receive(:set_changed).with(attr)
+        end
+        model.update_attributes!(attrs)
       end
     end
   end

@@ -19,7 +19,11 @@ module Tracker
     end
 
     def update_tracked_attributes
-      
+      changed_attrs = self.changes.keys.map(&:to_sym)
+      changed_tracked_attributes = self.class.tracked_attributes.select {|k| changed_attrs.include?(k)}
+      changed_tracked_attributes.each do |attr|
+        self.tracked.set_changed(attr)
+      end
     end
 
     def tracked
