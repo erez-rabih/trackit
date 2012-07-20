@@ -19,7 +19,7 @@ describe Tracker::Wrapper do
     context "with ActiveRecord object" do
 
       let :wrapper do
-        wrapper = Tracker::Wrapper.new(model)
+        model.tracked
       end
 
       describe "model" do
@@ -53,7 +53,7 @@ describe Tracker::Wrapper do
   context "unchanged model" do
 
     let :wrapper do
-      Tracker::Wrapper.new(model)
+      model.tracked
     end
 
     describe :changed? do
@@ -89,7 +89,7 @@ describe Tracker::Wrapper do
       end
 
       let :wrapper do
-        Tracker::Wrapper.new(model)
+        model.tracked
       end
 
       describe :changed? do
@@ -130,7 +130,7 @@ describe Tracker::Wrapper do
       end
 
       let :wrapper do
-        Tracker::Wrapper.new(model)
+        model.tracked
       end
 
       describe :changed? do
@@ -164,8 +164,6 @@ describe Tracker::Wrapper do
           end
         end
       end
-
-
       
     end
     
@@ -177,7 +175,7 @@ describe Tracker::Wrapper do
       end
 
       let :wrapper do
-        Tracker::Wrapper.new(model)
+        model.tracked
       end
 
       describe :changed? do
@@ -209,5 +207,131 @@ describe Tracker::Wrapper do
     end
 
   end
+
+  describe "set changed / unchanged" do
+
+    let :changed_attr do
+      DummyTrackedModel::TRACKED_ATTRIBUTES.first
+    end
+
+    let :wrapper do
+      model.tracked
+    end
+
+    describe :set_changed do
+
+      context "on unchanged attribute" do
+
+        describe "attribute_changed?" do
+
+          it "should change response of attribute_changed?" do
+            expect {
+              wrapper.set_changed(changed_attr)
+            }.to change(wrapper, "#{changed_attr}_changed?").from(false).to(true)
+          end
+
+        end
+      end
+
+      context "on changed attribute" do
+        before do
+          wrapper.set_changed(changed_attr)
+        end
+        describe "attribute_changed?" do
+          it "should not change response" do
+            expect {
+              wrapper.set_changed(changed_attr)
+            }.not_to change(wrapper, "#{changed_attr}_changed?")
+          end
+        end
+      end
+    end
+
+    describe :set_unchanged do
+
+      context "on unchanged attribute" do
+        describe "attribute_changed?" do
+          it "should not change response" do
+            expect {
+              wrapper.set_unchanged(changed_attr)
+            }.not_to change(wrapper, "#{changed_attr}_changed?")
+          end
+        end
+
+      end
+
+      context "on changed attribute" do
+        before do
+          wrapper.set_changed(changed_attr)
+        end
+
+        it "should change response of attribute_changed?" do
+          expect {
+            wrapper.set_unchanged(changed_attr)
+          }.to change(wrapper, "#{changed_attr}_changed?").from(true).to(false)
+        end
+      end
+    end
+
+
+  end
+
+  describe :set_all_unchanged do
+
+    before do
+      model.change_tracked!
+    end
+
+    let :wrapper do
+      model.tracked
+    end
+
+    describe :changed? do
+      it "change from true to false" do
+        expect {
+          wrapper.set_all_unchanged
+        }.to change(wrapper, :changed?).from(true).to(false)
+      end
+    end
+
+    describe :changed do
+      it "should be blank array" do
+        expect {
+          wrapper.set_all_unchanged
+        }.to change(wrapper, :changed).to([])
+      end
+    end
+
+  end
+  describe :set_all_changed do
+
+    let :wrapper do
+      model.tracked
+    end
+
+    describe :changed? do
+      it "should change from false to true" do
+        expect {
+          wrapper.set_all_changed
+        }.to change(wrapper, :changed?).from(false).to(true)
+      end
+    end
+
+
+    DummyTrackedModel::TRACKED_ATTRIBUTES.each do |attr| 
+      describe :attribute_changed? do
+        it "should return true" do
+          expect {
+            wrapper.set_all_changed
+          }.to change(wrapper, "#{attr}_changed?").from(false).to(true)
+        end
+      end
+    end
+
+
+  end
+  
+
+
 
 end

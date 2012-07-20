@@ -10,7 +10,7 @@ module Tracker
     end
 
     def changed?
-      model.tracked_attributes > 0
+      model.tracked_attributes != 0
     end
     
     def changed
@@ -24,6 +24,18 @@ module Tracker
 
     def set_changed(attr)
       @model.tracked_attributes |= 2 ** tracked_attributes.index(attr)
+    end
+
+    def set_unchanged(attr)
+      @model.tracked_attributes &= ~(2 ** tracked_attributes.index(attr))
+    end
+
+    def set_all_unchanged
+      @model.tracked_attributes = 0
+    end
+
+    def set_all_changed
+      @model.tracked_attributes |= (~0)
     end
 
 
