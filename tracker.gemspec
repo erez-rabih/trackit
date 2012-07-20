@@ -7,11 +7,11 @@ require "tracker/version"
 Gem::Specification.new do |s|
   s.name        = "tracker"
   s.version     = Tracker::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ActiverecordTrackable."
-  s.description = "TODO: Description of ActiverecordTrackable."
+  s.authors     = ["Erez Rabih"]
+  s.email       = ["erez.rabih@gmail.com"]
+  s.homepage    = "https://github.com/erez-rabih/tracker"
+  s.summary     = "Tracker allows you to track attributes changes in your ActiveRecord models"
+  s.description = "Tracker allows you to track attributes changes in your ActiveRecord models"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
