@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 describe :track_attributes do
@@ -78,21 +77,13 @@ describe :track_attributes do
     context "change were made but not to tracked attributes" do
       it "should not change tracked attributes" do
         model.tracked.should_not_receive(:set_changed)
-        attrs = DummyTrackedModel::UNTRACKED_ATTRIBUTES.inject({}) do |h, attr|
-          h[attr] = 0
-          h
-        end
-        model.update_attributes!(attrs)
+        model.change_untracked!
       end
     end
 
     context "changes were made to tracked attribute" do
       it "should set_changed attributes appropriately" do
-        attrs = DummyTrackedModel::TRACKED_ATTRIBUTES.inject({}) do |h, attr|
-          h[attr] = 0
-          h
-        end
-        
+        attrs = model.get_changed_tracked_attrs_hash
         DummyTrackedModel::TRACKED_ATTRIBUTES.each do |attr|
           model.tracked.should_receive(:set_changed).with(attr)
         end
