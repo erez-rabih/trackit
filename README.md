@@ -18,7 +18,7 @@ Run the `bundle install` command in order to install the gem.
 After the gem was successfully installed you need to run the generator:
 
 ```console
-rails generate tracker Model attr_a attr_b
+rails generate track_it Model attr_a attr_b
 ```
 
 This will generate tracking for Model class which inherits from ActiveRecord::Base, and only for attributes attr_a, attr_b.
@@ -71,7 +71,7 @@ end
 And you want to keep track on all those users who changed their current jobs or addresses:
 
 ```console
-rails generate tracker User address current_job
+rails generate track_it User address current_job
 ```
 
 And
