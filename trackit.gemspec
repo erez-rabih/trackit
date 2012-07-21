@@ -9,11 +9,11 @@ Gem::Specification.new do |s|
   s.version     = TrackIt::VERSION
   s.authors     = ["Erez Rabih"]
   s.email       = ["erez.rabih@gmail.com"]
-  s.homepage    = "https://github.com/erez-rabih/tracker"
+  s.homepage    = "https://github.com/erez-rabih/trackit"
   s.summary     = "TrackIt allows you to track attributes changes in your ActiveRecord models"
   s.description = "TrackIt allows you to track attributes changes in your ActiveRecord models"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 3.2.6"
 
