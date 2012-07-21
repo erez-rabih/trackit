@@ -1,0 +1,10 @@
+Description:
+    Generates tracked attributes for Model and attributes attr_a attr_b
+
+Example:
+    rails generate track_it Model attr_a attr_b
+
+    This will create:
+       /db/migrate/add_tracked_attributes_to_models.rb
+    And Inject:
+       track_attributes :attr_a, :attr_b into /app/models/model.rb

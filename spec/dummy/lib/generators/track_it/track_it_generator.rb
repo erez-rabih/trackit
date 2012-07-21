@@ -3,7 +3,7 @@ require 'rails/generators/migration'
 
 module TrackIt
   module Generators
-    class TrackerGenerator < ActiveRecord::Generators::Base
+    class TrackItGenerator < ActiveRecord::Generators::Base
       source_root File.expand_path('../templates', __FILE__)
       argument :attrs, :type => :array, :default => []
 

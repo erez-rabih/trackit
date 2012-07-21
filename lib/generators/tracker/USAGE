@@ -1,8 +1,0 @@
-Description:
-    Generated tracked attributes for Model and attributes attr_a attr_b
-
-Example:
-    rails generate tracker Model attr_a attr_b
-
-    This will create:
-       /db/migrate/add_tracked_attributes_to_models.rb
