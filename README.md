@@ -18,7 +18,7 @@ Run the `bundle install` command in order to install the gem.
 After the gem was successfully installed you need to run the generator:
 
 ```console
-rails generate tracker Model attr_a attr_b ...
+rails generate tracker Model attr_a attr_b
 ```
 
 This will generate tracking for Model class which inherits from ActiveRecord::Base, and only for attributes attr_a, attr_b.
