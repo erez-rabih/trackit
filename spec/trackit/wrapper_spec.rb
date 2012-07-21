@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Tracker::Wrapper do
+describe TrackIt::Wrapper do
 
   let :model do
     DummyTrackedModel.create!
@@ -9,11 +9,11 @@ describe Tracker::Wrapper do
   context "initialization" do
 
     it "should initialize with argument" do
-      expect {Tracker::Wrapper.new(1)}.not_to raise_error
+      expect {TrackIt::Wrapper.new(1)}.not_to raise_error
     end
 
     it "should not initialize without arguments" do
-      expect {Tracker::Wrapper.new}.to raise_error
+      expect {TrackIt::Wrapper.new}.to raise_error
     end
 
     context "with ActiveRecord object" do

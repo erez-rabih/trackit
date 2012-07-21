@@ -57,8 +57,8 @@ describe :track_attributes do
   end
 
   describe :tracked do
-    it "should return an instance of Tracker::Wrapper" do
-      DummyTrackedModel.new.tracked.should be_an_instance_of Tracker::Wrapper
+    it "should return an instance of TrackIt::Wrapper" do
+      DummyTrackedModel.new.tracked.should be_an_instance_of TrackIt::Wrapper
     end
   end
 

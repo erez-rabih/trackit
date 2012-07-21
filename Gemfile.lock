@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tracker (0.0.1)
+    trackit (0.1)
       rails (~> 3.2.6)
 
 GEM
@@ -141,4 +141,4 @@ DEPENDENCIES
   jquery-rails
   rspec-rails
   sqlite3
-  tracker!
+  trackit!

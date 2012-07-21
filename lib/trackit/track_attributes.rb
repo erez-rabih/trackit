@@ -1,4 +1,4 @@
-module Tracker
+module TrackIt
   module TrackAttributes
     extend ActiveSupport::Concern
  
@@ -27,10 +27,10 @@ module Tracker
     end
 
     def tracked
-      @tracked ||= Tracker::Wrapper.new(self)
+      @tracked ||= TrackIt::Wrapper.new(self)
     end
 
   end
 
 end
-ActiveRecord::Base.send :include, Tracker::TrackAttributes
+ActiveRecord::Base.send :include, TrackIt::TrackAttributes

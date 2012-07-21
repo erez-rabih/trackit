@@ -9,7 +9,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require
-require "tracker"
+require "trackit"
 
 module Dummy
   class Application < Rails::Application

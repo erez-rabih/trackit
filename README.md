@@ -1,16 +1,16 @@
-Tracker
+TrackIt
 =======
 
-Tracker is a small gem which helps you keep track of changes in you ActiveRecord models persistently.
-While ActiveModel::Dirty allows you to keep track on changes only when the change occurs, Tracker will keep attributes as changed until you decide to clear them.
+TrackIt is a small gem which helps you keep track of changes in you ActiveRecord models persistently.
+While ActiveModel::Dirty allows you to keep track on changes only when the change occurs, TrackIt will keep attributes as changed until you decide to clear them.
 
 Getting Started
 ===============
 
-First you will have to add Tracker to your gemfile.
+First you will have to add TrackIt to your gemfile.
 
 ```ruby
-gem 'tracker'
+gem 'trackit'
 ```
 
 Run the `bundle install` command in order to install the gem.
@@ -34,7 +34,7 @@ You may need to restart your app if it is already running.
 Usage
 =====
 
-Tracker provides an interface on your model instance as follows:
+TrackIt provides an interface on your model instance as follows:
 
 ```ruby
 model = Model.new

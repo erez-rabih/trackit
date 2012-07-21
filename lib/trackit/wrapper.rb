@@ -1,4 +1,4 @@
-module Tracker
+module TrackIt
 
   class Wrapper
     include ActiveModel::AttributeMethods
