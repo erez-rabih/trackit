@@ -48,9 +48,9 @@ model.tracked.attr_b_changed?
 .
 ```
 
-Each method corresponds to its similiar named method under ActiveMode::Dirty.
+Each method corresponds to its similiar named method under [ActiveModel::Dirty](http://api.rubyonrails.org/classes/ActiveModel/Dirty.html).
 
-Two auxilary methods are supplied:
+Two auxiliary methods are supplied:
 
 ```ruby
 model.tracked.set_all_changed
